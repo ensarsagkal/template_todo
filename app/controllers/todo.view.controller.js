@@ -8,7 +8,7 @@ const Todo = require('../models/todo.model')
 
 const PRIORITY = {
     '-1': 'Low',
-    '0': 'Normal',
+    '0': 'Norm',
     '1': 'High',
 }
 
@@ -17,7 +17,11 @@ module.exports = {
     list: async (req, res) => {
 
         // const data = await Todo.findAll()
-        const data = await Todo.findAndCountAll()
+        const data = await Todo.findAndCountAll({
+            order: [
+                ['id', 'desc']
+            ]
+        })
         // console.log(data.rows)
 
         // res.status(200).send({
