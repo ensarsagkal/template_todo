@@ -130,7 +130,10 @@ module.exports = {
         if (data > 0) { // Silme gerçekleşti ise:
             // res.status(204).send()
             //? Sadece status çıktı ver:
-            res.sendStatus(204)
+            // res.sendStatus(204)
+            
+            res.redirect('/view')
+
         } else { // Silme gerçekleşmedi ise:
             // res.status(404).send({
             //     error: true,
