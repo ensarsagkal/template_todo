@@ -13,6 +13,9 @@ require("express-async-errors")
 
 //* TEMPLATE-EJS
 app.set("view engine","ejs")
+
+app.set("views","./public")
+
 app.all("/",(req,res) =>{
     res.render('index')
 })
