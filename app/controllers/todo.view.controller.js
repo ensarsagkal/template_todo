@@ -8,7 +8,7 @@ const Todo = require('../models/todo.model')
 
 const PRIORITY = {
     '-1': 'Low',
-    '0': 'Norm',
+    '0': 'Normal',
     '1': 'High',
 }
 
