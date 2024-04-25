@@ -24,6 +24,6 @@ app.all("/",(req,res) =>{
 
 
 app.use("/api",require("./app/routes/todo.router")) 
-app.use("/views",require("./app/routes/todo.router")) 
+app.use("/views",require("./app/routes/todo.view.router")) 
 app.use(require("./app/errorHandler"))
 app.listen(PORT,()=>console.log("Running: https://127.0.0.1:" + PORT))
