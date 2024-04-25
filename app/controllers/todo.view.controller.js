@@ -44,10 +44,10 @@ module.exports = {
         //     result: data.dataValues
         // })
 
-        console.log(req.method)
+        // console.log(req.method)
 
         if (req.method == 'POST') {
-        // CREATE:
+            // CREATE:
 
             const data = await Todo.create(req.body)
 
@@ -58,15 +58,15 @@ module.exports = {
             // } else {
             //     res.redirect('/view/create') // Create Form
             // }
-            
+
             res.redirect('/view')
 
         } else {
-        // VIEW:
+            // VIEW:
             // Form View:
             res.render('todoCreate', { priority: PRIORITY })
         }
-        
+
     },
 
     read: async (req, res) => {
@@ -87,15 +87,31 @@ module.exports = {
     update: async (req, res) => {
 
         // const data = await Todo.update({ ...newData }, { ...where })
-        const data = await Todo.update(req.body, { where: { id: req.params.id } })
+        // const data = await Todo.update(req.body, { where: { id: req.params.id } })
 
-        res.status(202).send({
-            error: false,
-            message: 'Updated',
-            body: req.body, // Gönderdiğim veriyi göster.
-            result: data,
-            new: await Todo.findByPk(req.params.id) // Güncellenmiş veriyi de göster.
-        })
+        // res.status(202).send({
+        //     error: false,
+        //     message: 'Updated',
+        //     body: req.body, // Gönderdiğim veriyi göster.
+        //     result: data,
+        //     new: await Todo.findByPk(req.params.id) // Güncellenmiş veriyi de göster.
+        // })
+
+        if (req.method == 'POST') {
+        // UPDATE:
+
+            const data = await Todo.update(req.body, { where: { id: req.params.id } })
+
+            res.redirect('/view')
+
+        } else {
+        // VIEW:
+
+            const data = await Todo.findByPk(req.params.id);
+
+            // Form View:
+            res.render('todoUpdate', { todo: data.dataValues, priority: PRIORITY })
+        }
     },
 
     delete: async (req, res) => {
