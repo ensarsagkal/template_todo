@@ -23,6 +23,7 @@ app.all("/",(req,res) =>{
 
 
 
-app.use(require("./app/routes/todo.router")) //& ROUTER SAYFASI OLUŞTUKTAN SONRA YOL BELİRLENECEK
-app.use(require("./app/errorHandler")) //& ERROR SAYFASI OLUŞTUKTAN SONRA YOL BELİRLENECEK +
+app.use("/api",require("./app/routes/todo.router")) 
+app.use("/views",require("./app/routes/todo.router")) 
+app.use(require("./app/errorHandler"))
 app.listen(PORT,()=>console.log("Running: https://127.0.0.1:" + PORT))
