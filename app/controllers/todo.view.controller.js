@@ -133,6 +133,10 @@ module.exports = {
             // res.sendStatus(204)
             
             res.redirect('/view')
+            
+            // Yönlendirme çalışmaz ise:
+            // res.writeHead(302, {'Location': '/view'});
+            // res.end();
 
         } else { // Silme gerçekleşmedi ise:
             // res.status(404).send({
